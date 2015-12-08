@@ -9,7 +9,7 @@ from __future__ import print_function
 """ How do you count the number of digits of an integer? """
 
 def ndigits(number):
-    pass # place magic here
+    return len(str(number if number > 0 else -number))
 
 if __name__ == "__main__":
 
