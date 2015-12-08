@@ -11,7 +11,26 @@ from __future__ import print_function
 import unittest
 
 def is_permutation(word, another):
-    pass # place magic here
+    # Set it to lower
+    word, another = word.lower(), another.lower()
+
+    # If they are empty
+    if len(word) == 0 and len(another) == 0:
+        return True
+
+    def to_dict(string):
+        d = dict()
+        for char in string:
+            if d.has_key(char):
+                d[char] += 1
+            else:
+                d[char] = 1
+        if d.has_key(" "):
+            del d[" "]
+        return d
+
+    return to_dict(word) == to_dict(another)
+    
 
 class AllUniqueTests(unittest.TestCase):
 
