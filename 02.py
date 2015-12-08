@@ -12,7 +12,10 @@ all the elements. You are not allowed to use neither a for nor a while loop. """
 import unittest
 
 def product(numbers):
-    pass # place magic here
+    # Auxiliar func
+    def mult(x, y): return x*y
+
+    return reduce(mult, numbers) if len(numbers)>0 else 1
 
 class ProductTests(unittest.TestCase):
 
