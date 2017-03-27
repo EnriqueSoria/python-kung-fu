@@ -13,10 +13,10 @@ lists or dictionaries). You can use any function in the standard library. """
 import unittest
 
 def all_unique(word):
-    pass # place magic here
+    word = word.lower()
+    return all(1 if word.count(x)==1 else 0 for x in word)
 
 class AllUniqueTests(unittest.TestCase):
-
   def test_all_unique(self):
 
     self.assertTrue (all_unique(""))
