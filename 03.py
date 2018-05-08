@@ -12,8 +12,18 @@ and find() """
 
 import unittest
 
+def generate_permutations(word):
+    for index in range(len(word)):
+        yield word[index:] + word[0:index]
+
+
 def is_rotation(word, another):
-    return pass # place magic here
+    if word == another == "":
+        return True
+    if len(word) != len(another):
+        return False
+
+    return another in generate_permutations(word)
 
 
 class RotationTests(unittest.TestCase):
