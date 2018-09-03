@@ -1,6 +1,11 @@
 #! /usr/bin/env python
 
 from __future__ import print_function
+from sys import version_info
+
+if version_info > (3, 0):
+    from functools import reduce
+
 
 # Author: Victor Terron (c) 2015
 # Email: `echo vt2rron1iaa32s | tr 132 @.e`
@@ -12,10 +17,7 @@ all the elements. You are not allowed to use neither a for nor a while loop. """
 import unittest
 
 def product(numbers):
-    # Auxiliar func
-    def mult(x, y): return x*y
-
-    return reduce(mult, numbers) if len(numbers)>0 else 1
+    return reduce(lambda x,y: x*y, numbers) if len(numbers)>0 else 1
 
 class ProductTests(unittest.TestCase):
 
